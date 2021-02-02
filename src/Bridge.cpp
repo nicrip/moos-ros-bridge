@@ -217,33 +217,33 @@ int CreateROSPubSub(xml_node<> *node, vector<MsgContainer> *pubVec, vector<MsgCo
      }else if(strcmp(node->first_node("direction")->value(),"toMOOS") == SUCCESS){
 	  if(strcmp(node->first_node("rostype")->value(),"std_msgs/Int32") == 0){
                subVec->push_back(MsgContainer(n->subscribe(node->first_node("rosname")->value(),
-							   1000,callBack<std_msgs::Int32,std_msgs::Int32ConstPtr>, ros::TransportHints().unreliable()),
+							   1000,callBack<std_msgs::Int32,std_msgs::Int32ConstPtr>, ros::TransportHints().unreliable().reliable()),
 					      node->first_node("moosname")->value(),
 					      node->first_node("rosname")->value()));
 	  }else if(strcmp(node->first_node("rostype")->value(),"std_msgs/Int64") == SUCCESS){
 	       subVec->push_back(MsgContainer(n->subscribe(node->first_node("rosname")->value(),
-							   1000,callBack<std_msgs::Int64,std_msgs::Int64ConstPtr>, ros::TransportHints().unreliable()),
+							   1000,callBack<std_msgs::Int64,std_msgs::Int64ConstPtr>, ros::TransportHints().unreliable().reliable()),
 					      node->first_node("moosname")->value(),
 					      node->first_node("rosname")->value()));
 	  }else if(strcmp(node->first_node("rostype")->value(),"std_msgs/Float32") == SUCCESS){
 	       subVec->push_back(MsgContainer(n->subscribe(node->first_node("rosname")->value(),
-							   1000,callBack<std_msgs::Float32,std_msgs::Float32ConstPtr>, ros::TransportHints().unreliable()),
+							   1000,callBack<std_msgs::Float32,std_msgs::Float32ConstPtr>, ros::TransportHints().unreliable().reliable()),
 					      node->first_node("moosname")->value(),
 					      node->first_node("rosname")->value()));
 	  }else if(strcmp(node->first_node("rostype")->value(),"std_msgs/Float64") == SUCCESS){
 	       subVec->push_back(MsgContainer(n->subscribe(node->first_node("rosname")->value(),
-							   1000,callBack<std_msgs::Float64,std_msgs::Float64ConstPtr>, ros::TransportHints().unreliable()),
+							   1000,callBack<std_msgs::Float64,std_msgs::Float64ConstPtr>, ros::TransportHints().unreliable().reliable()),
 					      node->first_node("moosname")->value(),
 					      node->first_node("rosname")->value()));
 	  }else if(strcmp(node->first_node("rostype")->value(),"std_msgs/String") == SUCCESS){
 	       subVec->push_back(MsgContainer(n->subscribe(node->first_node("rosname")->value(),
-							   1000,callBack<std_msgs::String,std_msgs::StringConstPtr>, ros::TransportHints().unreliable()),
+							   1000,callBack<std_msgs::String,std_msgs::StringConstPtr>, ros::TransportHints().unreliable().reliable()),
 					      node->first_node("moosname")->value(),
 					      node->first_node("rosname")->value()));
 	  }else if(strcmp(node->first_node("rostype")->value(),"std_msgs/String/Binary") == SUCCESS){
                // Binary-string support
                subVec->push_back(MsgContainer(n->subscribe(node->first_node("rosname")->value(),
-                                                           1000,binaryStringCallBack<std_msgs::String,std_msgs::StringConstPtr>, ros::TransportHints().unreliable()),
+                                                           1000,binaryStringCallBack<std_msgs::String,std_msgs::StringConstPtr>, ros::TransportHints().unreliable().reliable()),
                                               node->first_node("moosname")->value(),
                                               node->first_node("rosname")->value()));
           }else{
